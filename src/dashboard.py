@@ -35,7 +35,7 @@ def load_all():
         metrics = pickle.load(f)
 
     shap_values = np.load(ROOT / "data" / "shap_values.npy")
-    shap_expected = float(np.load(ROOT / "data" / "shap_expected_value.npy"))
+    shap_expected = float(np.load(ROOT / "data" / "shap_expected_value.npy").item())
 
     X = df[feature_cols].astype(float).values
     probs = model.predict_proba(X)[:, 1]
